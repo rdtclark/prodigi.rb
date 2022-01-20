@@ -1,3 +1,4 @@
 module Prodigi
-  class Error < StandardError; end
+  class Error < StandardError
+  end
 end

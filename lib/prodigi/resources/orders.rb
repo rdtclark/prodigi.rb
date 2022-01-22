@@ -7,16 +7,16 @@ module Prodigi
     end
 
     def create(**attributes)
-      res = post_request("orders", body: attributes ).body.dig("order")
-      if res.body.dig("outcome") == "Created"
-        Order.new res.body.dig("order")
+      response = post_request("orders", body: attributes)
+      if response.body.dig("outcome") == "Created"
+        Order.new response.body.dig("order")
       end
     end
 
     def retrieve(prodigi_order_id:)
-      res = get_request("orders/#{prodigi_order_id}")
-      if res.body.dig("outcome") == "Updated"
-        Order.new res.body.dig("order")
+      response = get_request("orders/#{prodigi_order_id}")
+      if response.body.dig("outcome") == "Updated"
+        Order.new response.body.dig("order")
       end
     end
 
@@ -25,23 +25,23 @@ module Prodigi
     end
 
     def update_shipping(prodigi_order_id:, **attributes)
-      res = post_request("orders/#{prodigi_order_id}/actions/updateShipping", body: attributes)
-      if res.body.dig("outcome") == "Updated"
-        Order.new res.body.dig("order")
+      response = post_request("orders/#{prodigi_order_id}/actions/updateShipping", body: attributes)
+      if response.body.dig("outcome") == "Updated"
+        Order.new response.body.dig("order")
       end
     end 
 
     def update_recipient(prodigi_order_id:, **attributes)
-      res = post_request("orders/#{prodigi_order_id}/actions/updateRecipient", body: attributes)
-      if res.body.dig("outcome") == "Updated"
-        Order.new res.body.dig("order")
+      response = post_request("orders/#{prodigi_order_id}/actions/updateRecipient", body: attributes)
+      if response.body.dig("outcome") == "Updated"
+        Order.new response.body.dig("order")
       end
     end 
 
     def update_metadata(prodigi_order_id:, **attributes)
-      res = post_request("orders/#{prodigi_order_id}/actions/updateMetadata", body: attributes)
-      if res.body.dig("outcome") == "Updated"
-        Order.new res.body.dig("order")
+      response = post_request("orders/#{prodigi_order_id}/actions/updateMetadata", body: attributes)
+      if response.body.dig("outcome") == "Updated"
+        Order.new response.body.dig("order")
       end
     end 
 

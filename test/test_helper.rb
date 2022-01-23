@@ -3,7 +3,7 @@ require "prodigi"
 require "minitest/autorun"
 require "faraday"
 require "json"
-require "pry"
+# require "pry"
 
 class Minitest::Test
   def stub_response(fixture:, status: 200, headers: {"Content-Type" => "application/json"})

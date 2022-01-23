@@ -20,6 +20,10 @@ module Prodigi
       QuoteResource.new(self)
     end
 
+    def products
+      ProductResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new do |conn|
         conn.url_prefix = BASE_URL

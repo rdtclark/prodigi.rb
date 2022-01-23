@@ -20,33 +20,55 @@ Or install it yourself as:
 
 ## Usage
 
+To access the API, you'll need to create a Prodigi::Client and pass in your API key. You can find your API key at https://dashboard.prodigi.com/settings/integrations
+
 ```ruby
 client = Prodigi::Client:new(api_key: ENV["PRODIGI_API_KEY"])
-client.orders.list
-client.orders.retrieve({id: 123})
-order = client.order.create({})
-order.id
-order.merchant_reference
-order.shipping_method
-
-client.quotes
-client.product_details
 ```
 
-## Development
+The client then gives you access to each of the resources.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## Resources
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+The gem maps as closely as we can to the Prodigi API so you can easily convert API examples to gem code.
+
+Responses are created as objects like Prodigi::Order. Having types like Prodigi::Quote is handy for understanding what type of object you're working with. They're built using OpenStruct so you can easily access data in a Ruby-ish way.
+
+### Orders
+
+```ruby
+client.orders.list
+client.orders.create({})
+client.orders.retrieve(prodigi_order_id: "id")
+client.orders.actions
+client.orders.update_shipping(prodigi_order_id: "id", {})
+client.orders.update_recipient(prodigi_order_id: "id", {})
+client.orders.update_metadata(prodigi_order_id: "id", {})
+client.orders.cancel(prodigi_order_id: "id", {})
+```
+
+### Quotes
+
+```ruby
+client.quotes.create({})
+```
+
+### Products 
+
+```ruby
+client.products.create({})
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/prodigi. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/prodigi/blob/main/CODE_OF_CONDUCT.md).
+1. Fork it ( https://github.com/tolbkni/prodigi/fork )
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create a new Pull Request
+
+When adding methods, add to the list of DEFINITIONS in lib/vultr.rb. Additionally, write a spec and add it to the list in the README.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Prodigi project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/prodigi/blob/main/CODE_OF_CONDUCT.md).
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)

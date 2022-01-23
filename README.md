@@ -1,8 +1,6 @@
-# Prodigi
+# Prodigi API Rubygem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/prodigi`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The easiest and most complete rubygem for Prodigi. Currently supports API v4.
 
 ## Installation
 
@@ -14,7 +12,7 @@ gem 'prodigi'
 
 And then execute:
 
-    $ bundle install
+    $ bundle
 
 Or install it yourself as:
 

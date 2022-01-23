@@ -1,0 +1,23 @@
+{
+	"shippingMethod": "Budget",
+	"destinationCountryCode": "GB",
+	"currencyCode":"GBP",
+	"items": [
+		{
+			"sku": "GLOBAL-CAN-10x10",
+			"copies": 5,
+			"attributes": { "wrap":"ImageWrap" },
+			"assets" : [
+				{ "printArea" : "default" }
+			]
+		},
+		{
+			"sku": "GLOBAL-FAP-10x10",
+			"copies": 1,
+			"attributes": { },
+			"assets" : [
+				{ "printArea" : "default" }
+			]
+		}
+	]
+}

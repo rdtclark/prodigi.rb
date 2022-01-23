@@ -1,0 +1,88 @@
+{
+	"outcome": "Created",
+	"quotes": [
+		{
+			"shipmentMethod": "Budget",
+			"costSummary": {
+				"items": {
+					"amount": "79.35",
+					"currency": "GBP"
+				},
+				"shipping": {
+					"amount": "19.46",
+					"currency": "GBP"
+				}
+			},
+			"shipments": [
+				{
+					"carrier": {
+						"name": "Mixed",
+						"service": "Mixed"
+					},
+					"fulfillmentLocation": {
+						"countryCode": "US",
+						"labCode": "us11"
+					},
+					"cost": {
+						"amount": "17.96",
+						"currency": "GBP"
+					},
+					"items": [
+						"qit_f1c1f62b8fd0486da831c9438e89bc25"
+					]
+				},
+				{
+					"carrier": {
+						"name": "royalmail",
+						"service": "Standard"
+					},
+					"fulfillmentLocation": {
+						"countryCode": "GB",
+						"labCode": "uk6"
+					},
+					"cost": {
+						"amount": "1.50",
+						"currency": "GBP"
+					},
+					"items": [
+						"qit_a904222e1c964440870f3400bd2d5973"
+					]
+				}
+			],
+			"items": [
+				{
+					"id": "qit_f1c1f62b8fd0486da831c9438e89bc25",
+					"sku": "GLOBAL-CAN-10X10",
+					"copies": 5,
+					"unitCost": {
+						"amount": "14.37",
+						"currency": "GBP"
+					},
+					"attributes": {
+						"wrap": "ImageWrap"
+					},
+					"assets": [
+						{
+							"printArea": "default"
+						}
+					]
+				},
+				{
+					"id": "qit_a904222e1c964440870f3400bd2d5973",
+					"sku": "GLOBAL-TECH-IP11P-FC-CP",
+					"copies": 1,
+					"unitCost": {
+						"amount": "7.50",
+						"currency": "GBP"
+					},
+					"attributes": {},
+					"assets": [
+						{
+							"printArea": "default"
+						}
+					]
+				}
+			]
+		}
+	]
+}

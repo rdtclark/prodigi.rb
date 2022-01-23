@@ -16,7 +16,8 @@ module Prodigi
       OrderResource.new(self)
     end
 
-    def quote
+    def quotes
+      QuoteResource.new(self)
     end
 
     def connection

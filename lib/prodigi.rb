@@ -10,9 +10,10 @@ module Prodigi
   autoload :Object, "prodigi/object"
 
   # High-level categories of Prodigi API calls
-  # autoload :OrderResource, "prodigi/resources/order"
   autoload :OrderResource, "prodigi/resources/orders"
+  autoload :QuoteResource, "prodigi/resources/quotes"
 
   # Classes used to return a nicer object wrapping the response data
   autoload :Order, "prodigi/objects/order"
+  autoload :Quote, "prodigi/objects/quote"
 end

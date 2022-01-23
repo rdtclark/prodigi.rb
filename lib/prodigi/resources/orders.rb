@@ -21,18 +21,23 @@ module Prodigi
     end
 
     def actions(prodigi_order_id:)
-      Object.new get_request("orders/#{prodigi_order_id}/actions").body
+      response = get_request("orders/#{prodigi_order_id}/actions")
+      if response.body.dig("outcome") == "Ok"
+        Object.new response.body
+      end
     end
 
     def update_shipping(prodigi_order_id:, **attributes)
-      response = post_request("orders/#{prodigi_order_id}/actions/updateShipping", body: attributes)
+      response = post_request("orders/#{prodigi_order_id}/actions/updateShipping",
+                              body: attributes)
       if response.body.dig("outcome") == "Updated"
         Order.new response.body.dig("order")
       end
     end 
 
     def update_recipient(prodigi_order_id:, **attributes)
-      response = post_request("orders/#{prodigi_order_id}/actions/updateRecipient", body: attributes)
+      response = post_request("orders/#{prodigi_order_id}/actions/updateRecipient",
+                              body: attributes)
       if response.body.dig("outcome") == "Updated"
         Order.new response.body.dig("order")
       end
@@ -46,8 +51,11 @@ module Prodigi
     end 
 
     def cancel(prodigi_order_id:, **attributes)
-      post_request("orders/#{prodigi_order_id}/actions/cancel", body: attributes).body.dig("outcome")
+      response = post_request("orders/#{prodigi_order_id}/actions/cancel", 
+                              body: attributes)
+      if response.body.dig('outcome') == "Cancelled"
+        Order.new response.body.dig('order')
+      end
     end 
-
   end
 end

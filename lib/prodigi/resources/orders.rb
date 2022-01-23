@@ -15,7 +15,7 @@ module Prodigi
 
     def retrieve(prodigi_order_id:)
       response = get_request("orders/#{prodigi_order_id}")
-      if response.body.dig("outcome") == "Updated"
+      if response.body.dig("outcome") == "Ok"
         Order.new response.body.dig("order")
       end
     end

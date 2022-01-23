@@ -23,6 +23,16 @@ class OrdersResourceTest < Minitest::Test
     assert_equal"MyMerchantReference1", order["merchantReference"]
   end 
 
+  def test_retrieve
+    order_id = "ord_840797"
+    stub = stub_request("orders/#{order_id}", response: stub_response(fixture: "orders/retrieve"))
+    client = Prodigi::Client.new(api_key: "fake", adapter: :test, stubs: stub)
+    order = client.orders.retrieve(prodigi_order_id: order_id)
+
+    assert_equal Prodigi::Order, order.class
+    assert_equal"MyMerchantReference1", order["merchantReference"]
+  end
+
   def test_actions
   end
 

@@ -1,0 +1,75 @@
+{
+	"outcome": "Updated",
+	"shippingUpdateResults": [],
+	"order": {
+		"id": "ord_840799",
+		"created": "2021-03-11T15:06:40.697Z",
+		"lastUpdated": "2021-03-11T15:06:46.2816154Z",
+		"callbackUrl": null,
+		"merchantReference": "MyMerchantReference1",
+		"shippingMethod": "Budget",
+		"idempotencyKey": null,
+		"status": {
+			"stage": "InProgress",
+			"issues": [],
+			"details": {
+				"downloadAssets": "NotStarted",
+				"printReadyAssetsPrepared": "NotStarted",
+				"allocateProductionLocation": "NotStarted",
+				"inProduction": "NotStarted",
+				"shipping": "NotStarted"
+			}
+		},
+		"charges": [],
+		"shipments": [],
+		"recipient": {
+			"name": "Mr Test[tolab]",
+			"email": null,
+			"phoneNumber": null,
+			"address": {
+				"line1": "14 test place",
+				"line2": "test",
+				"postalOrZipCode": "12345",
+				"countryCode": "US",
+				"townOrCity": "somewhere",
+				"stateOrCounty": null
+			}
+		},
+		"items": [
+			{
+				"id": "ori_926889",
+				"status": "NotYetDownloaded",
+				"merchantReference": "item #1",
+				"sku": "GLOBAL-CFPM-16X20",
+				"copies": 1,
+				"sizing": "fillPrintArea",
+				"attributes": {
+					"color": "black"
+				},
+				"assets": [
+					{
+						"id": "ast_114059",
+						"printArea": "default",
+						"md5Hash": "daa1c811c6038e718a23f0d816914b7b",
+						"url": "https://pwintyimages.blob.core.windows.net/samples/stars/test-sample-grey.png",
+						"status": "InProgress"
+					}
+				],
+				"recipientCost": {
+					"amount": "10.74",
+					"currency": "GBP"
+				}
+			}
+		],
+		"packingSlip": null,
+		"metadata": {
+			"mycustomkey": "some-guid",
+			"someCustomerPreference": {
+				"preference1": "something",
+				"preference2": "red"
+			},
+			"sourceId": 12345
+		}
+	},
+	"traceParent": "00-a80b88df69bd0e45a923cc4d9f858978-5eaad925e38cd348-00"
+}

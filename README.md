@@ -58,7 +58,7 @@ client.quotes.create({})
 ### Products 
 
 ```ruby
-client.products.create({})
+client.products.details(sku:)
 ```
 
 ## Contributing

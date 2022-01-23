@@ -1,6 +1,6 @@
 module Prodigi
   class Client 
-    BASE_URL = "https://api.sandbox.prodigi.com/v4.0"
+    BASE_URL = ENV.fetch('PRODIGI_API_URL',"https://api.sandbox.prodigi.com/v4.0")
 
     attr_reader :api_key, :adapter
 

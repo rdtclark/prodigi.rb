@@ -1,0 +1,10 @@
+{ 
+	"metadata" : { 
+		"internalRef" : "abdef",
+		"templateSize" : 1,
+		"feedback" : {
+			"message": "some message",
+			"stars": 5
+		}
+	}
+}

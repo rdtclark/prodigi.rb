@@ -42,7 +42,7 @@ Responses are created as objects like Prodigi::Order. Having types like Prodigi:
 client.orders.list
 client.orders.create({})
 client.orders.retrieve(prodigi_order_id: "id")
-client.orders.actions
+client.orders.actions(prodigi_order_id: "id")
 client.orders.update_shipping(prodigi_order_id: "id", {})
 client.orders.update_recipient(prodigi_order_id: "id", {})
 client.orders.update_metadata(prodigi_order_id: "id", {})
@@ -58,7 +58,7 @@ client.quotes.create({})
 ### Products 
 
 ```ruby
-client.products.details(sku:)
+client.products.details(sku: "sku")
 ```
 
 ## Contributing

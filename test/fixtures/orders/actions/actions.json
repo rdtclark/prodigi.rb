@@ -1,0 +1,16 @@
+{
+		"outcome": "Ok",
+		"cancel": {
+				"isAvailable": "Yes"
+		},
+		"changeRecipientDetails": {
+				"isAvailable": "Yes"
+		},
+		"changeShippingMethod": {
+				"isAvailable": "Yes"
+		},
+		"changeMetaData": {
+				"isAvailable": "Yes"
+		},
+		"traceParent": "00-e5bcd15ebc235043bf43b6fb209de64e-72320d4625a34a40-00"
+}

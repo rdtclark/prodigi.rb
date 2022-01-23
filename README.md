@@ -1,7 +1,7 @@
 # Prodigi API Rubygem
 
-The easiest and most complete rubygem for Prodigi. Currently supports API v4.
-
+The easiest and most complete rubygem for [Prodigi](https://www.prodigi.com) . Currently supports API [v4](https://www.prodigi.com/print-api/docs/reference/#introduction).
+ 
 ## Installation
 
 Add this line to your application's Gemfile:

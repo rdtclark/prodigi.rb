@@ -1,0 +1,13 @@
+{
+	"name": "Mr. Jeff Testing",
+	"email": "jeff.testing@test.co.uk",
+	"phoneNumber": "123456780",
+	"address" : {
+		"line1": "14 test place",
+		"line2": "test",
+		"postalOrZipCode": "12345",
+		"countryCode": "US",
+		"townOrCity": "MyTown",
+		"stateOrCounty": null
+	}
+}

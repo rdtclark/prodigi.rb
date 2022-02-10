@@ -69,7 +69,7 @@ client.products.details(sku: "sku")
 4. Push to the branch (git push origin my-new-feature)
 5. Create a new Pull Request
 
-When adding methods, add to the list of DEFINITIONS in lib/vultr.rb. Additionally, write a spec and add it to the list in the README.
+When adding methods, add to the list of DEFINITIONS in lib/prodigi.rb. Additionally, write a spec and add it to the list in the README.
 
 ## License
 

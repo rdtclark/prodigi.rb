@@ -1,12 +1,14 @@
 module Prodigi
-  class Client 
-    BASE_URL = ENV.fetch('PRODIGI_API_URL',"https://api.sandbox.prodigi.com/v4.0")
+  class Client
+    BASE_URL_DEFAULT = "https://api.sandbox.prodigi.com/v4.0"
+    BASE_URL_ENV_VAR = "PRODIGI_API_URL"
 
-    attr_reader :api_key, :adapter
+    attr_reader :api_key, :adapter, :base_url
 
-    def initialize(api_key:, adapter: Faraday.default_adapter, stubs: nil)
+    def initialize(api_key:, adapter: Faraday.default_adapter, base_url: nil, stubs: nil)
       @api_key = api_key
       @adapter = adapter
+      @base_url = base_url || ENV.fetch(BASE_URL_ENV_VAR, BASE_URL_DEFAULT)
 
       # Tests stubs for requests
       @stubs = stubs
@@ -26,7 +28,7 @@ module Prodigi
 
     def connection
       @connection ||= Faraday.new do |conn|
-        conn.url_prefix = BASE_URL
+        conn.url_prefix = @base_url
         conn.request :json
         conn.response :json, content_type: "application/json"
         conn.adapter adapter, @stubs

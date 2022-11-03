@@ -22,10 +22,15 @@ Or install it yourself as:
 
 To access the API, you'll need to create a Prodigi::Client and pass in your API key. You can find your API key at https://dashboard.prodigi.com/settings/integrations
 
-Defaults to sandbox unless PRODIGI_API_URL environment variable exists containing live url string "https://api.prodigi.com/v4.0".
+Defaults to sandbox unless the base url is changed to "https://api.prodigi.com/v4.0" either by setting the PRODIGI_API_URL environment variable or passing it as base_url when creating the client.
 
 ```ruby
-client = Prodigi::Client:new(api_key: ENV["PRODIGI_API_KEY"])
+client = Prodigi::Client.new(api_key: ENV["PRODIGI_API_KEY"])
+```
+
+If you want to set the base_url you can pass it when creating the client.
+```ruby
+client = Prodigi::Client.new(base_url: "https://api.sandbox.prodigi.com/v4.0", api_key: ENV["PRODIGI_API_KEY"])
 ```
 
 The client then gives you access to each of the resources.

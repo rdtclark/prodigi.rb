@@ -66,6 +66,19 @@ client.quotes.create({})
 client.products.details(sku: "sku")
 ```
 
+## Debugging
+If you would like more debugging information showing API responses you can enable debugging output when you create the client.
+
+```ruby
+client = Prodigi::Client.new(api_key: ..., debug: true)
+```
+
+This will log additional output to stdout, or you can pass in a different logger.
+
+```ruby
+client = Prodigi::Client.new(api_key: ..., debug: true, logger: MySpecialLogger)
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/rdtclark/prodigi/fork )

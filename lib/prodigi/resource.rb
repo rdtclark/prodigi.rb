@@ -31,6 +31,10 @@ module Prodigi
     end
 
     def handle_response(response)
+      if client.debug
+        client.logger.debug(response.pretty_inspect)
+      end
+
       message = response.body["statusText"]
       case response.status
       when 400

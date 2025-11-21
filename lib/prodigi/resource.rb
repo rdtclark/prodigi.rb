@@ -1,8 +1,42 @@
+# frozen_string_literal: true
+
+require_relative "error"
+
 module Prodigi
+  # Base class for all API resource classes
+  #
+  # Provides common HTTP request methods (GET, POST, PATCH, PUT, DELETE) and
+  # response handling for interacting with the Prodigi API. All specific resource
+  # classes (OrderResource, QuoteResource, ProductResource) inherit from this class.
+  #
+  # This class handles:
+  # - HTTP request construction with proper headers
+  # - Response parsing and error handling
+  # - Debug logging when enabled
+  # - Authentication via API key headers
+  #
+  # @abstract Subclass and add resource-specific methods
+  # @attr_reader [Prodigi::Client] client The API client instance
+  #
+  # @example Subclassing (internal use)
+  #   class OrderResource < Resource
+  #     def list(**params)
+  #       response = get_request("orders", params: params)
+  #       Collection.from_response(response, key: "orders", type: Order)
+  #     end
+  #   end
   class Resource
     attr_reader :client
 
-    def initialize(client) 
+    ERROR_MAP = {
+      400 => [BadRequestError, "Bad request: the request is malformed."],
+      401 => [UnauthorizedError, "Unauthorised: credentials missing or incorrect."],
+      403 => [ForbiddenError, nil],
+      404 => [NotFoundError, "Resource does not exist."],
+      429 => [RateLimitError, nil]
+    }.freeze
+
+    def initialize(client)
       @client = client
     end
 
@@ -31,27 +65,26 @@ module Prodigi
     end
 
     def handle_response(response)
-      if client.debug
-        client.logger.debug(response.pretty_inspect)
-      end
+      client.logger.debug(response.pretty_inspect) if client.debug
 
-      message = response.body["statusText"]
-      case response.status
-      when 400
-        raise Error, "Bad request: the request is malformed in some manner. #{message}"
-      when 401
-        raise Error, "Unauthorised: your credentials are missing or incorrect. #{message}"
-      when 403
-        raise Error, message
-      when 404
-        raise Error, "Not found: the resource does not exist (or does not exist in your account). #{message}"
-      when 429
-        raise Error, message
-      when 500
-        raise Error, "Internal server error: Please contact support@prodigi.com. #{message}"
-      end
+      raise_error_if_needed(response)
 
       response
+    end
+
+    private
+
+    def raise_error_if_needed(response)
+      status = response.status
+      message = response.body["statusText"]
+
+      if ERROR_MAP.key?(status)
+        error_class, prefix = ERROR_MAP[status]
+        full_message = prefix ? "#{prefix} #{message}" : message
+        raise error_class, full_message
+      elsif status.between?(500, 599)
+        raise ServerError, "Internal server error. #{message}"
+      end
     end
   end
 end

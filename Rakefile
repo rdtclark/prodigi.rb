@@ -2,6 +2,7 @@
 
 require "bundler/gem_tasks"
 require "rake/testtask"
+require "yard"
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
@@ -14,3 +15,5 @@ require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
 task default: %i[test rubocop]
+
+YARD::Rake::YardocTask.new

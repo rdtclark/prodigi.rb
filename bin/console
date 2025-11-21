@@ -11,7 +11,7 @@ require "prodigi"
 # require "pry"
 # Pry.start
 
-client = Prodigi::Client.new(api_key: ENV["PRODIGI_API_KEY"])
+Prodigi::Client.new(api_key: ENV.fetch("PRODIGI_API_KEY", nil))
 # client.connection.get("orders", {}, { "X-API-Key": client.api_key })
 
 require "irb"

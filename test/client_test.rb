@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "test_helper"
 
 class ClientTest < Minitest::Test
@@ -13,7 +14,7 @@ class ClientTest < Minitest::Test
   end
 
   def test_base_url_override_as_env
-    previous = ENV["PRODIGI_API_URL"]
+    previous = ENV.fetch("PRODIGI_API_URL", nil)
     ENV["PRODIGI_API_URL"] = "https://api.sandbox.prodigi.com/ENV_TEST"
 
     client = Prodigi::Client.new(api_key: "fake", adapter: :test)
@@ -26,5 +27,4 @@ class ClientTest < Minitest::Test
     client = Prodigi::Client.new(api_key: "fake", adapter: :test, base_url: "https://api.sandbox.prodigi.com/ARGUMENT_TEST")
     assert_equal client.base_url, "https://api.sandbox.prodigi.com/ARGUMENT_TEST"
   end
-
 end

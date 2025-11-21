@@ -12,13 +12,14 @@ Gem::Specification.new do |spec|
   spec.description = "Ruby bindings for the Prodigi API. Prodigi API can be found here https://www.prodigi.com/print-api"
   spec.homepage = "https://github.com/rdtclark/prodigi.rb"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 3.1.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/rdtclark/prodigi.rb"
   spec.metadata["changelog_uri"] = "https://github.com/rdtclark/prodigi/CHANGELOG.md"
+  spec.metadata["rubygems_mfa_required"] = "true"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -31,7 +32,5 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday", "~> 1.8"
-  spec.add_dependency "faraday_middleware", "~> 1.2"
-  # spec.add_development_dependency 'pry'
+  spec.add_dependency "faraday", "~> 2.0.1"
 end

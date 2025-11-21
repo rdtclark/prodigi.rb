@@ -1,7 +1,26 @@
+# frozen_string_literal: true
+
 require "faraday"
-require "faraday_middleware"
+require "logger"
 require_relative "prodigi/version"
 
+# Ruby client library for the Prodigi Print API
+#
+# Prodigi provides a worldwide printing and fulfillment service through their API.
+# This gem provides a Ruby interface to interact with their API endpoints.
+#
+# @example Basic usage
+#   client = Prodigi::Client.new(api_key: ENV["PRODIGI_API_KEY"])
+#   orders = client.orders.list
+#   order = client.orders.create(
+#     merchantReference: "ref123",
+#     shippingMethod: "Overnight",
+#     recipient: { name: "John Doe", address: {...} },
+#     items: [...]
+#   )
+#
+# @see https://www.prodigi.com/print-api/docs/reference/
+# @author Robin Clark
 module Prodigi
   autoload :Client, "prodigi/client"
   autoload :Collection, "prodigi/collection"

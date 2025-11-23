@@ -1,5 +1,20 @@
 # frozen_string_literal: true
 
+require "simplecov"
+require "codecov"
+
+SimpleCov.start do
+  add_filter "/test/"
+  minimum_coverage 100
+end
+
+if ENV["CI"]
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+                                                                   SimpleCov::Formatter::HTMLFormatter,
+                                                                   SimpleCov::Formatter::Codecov
+                                                                 ])
+end
+
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "prodigi"
 require "minitest/autorun"

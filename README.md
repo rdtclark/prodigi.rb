@@ -1,4 +1,6 @@
 # Prodigi API Rubygem
+ 
+[![codecov](https://codecov.io/gh/rdtclark/prodigi.rb/graph/badge.svg)](https://codecov.io/gh/rdtclark/prodigi.rb)
 
 The easiest and most complete rubygem for [Prodigi](https://www.prodigi.com) Worldwide Printing Service. Currently supports [API v4](https://www.prodigi.com/print-api/docs/reference/#introduction).
  

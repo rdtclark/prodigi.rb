@@ -28,6 +28,13 @@ jobs:
     - name: Run tests
       run: bundle exec rake test
 
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+      	token: ${{ secrets.CODECOV_TOKEN }}
+      env:
+        CI: true
+
     - name: Run RuboCop
       run: bundle exec rubocop
       if: matrix.ruby-version == '3.4'

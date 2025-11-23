@@ -13,3 +13,8 @@ gem "ostruct", "~> 0.6.3"
 gem "rake", "~> 13.3"
 gem "rubocop", "~> 1.81"
 gem "yard", "~> 0.9", require: false
+
+group :test do
+  gem "codecov", require: false
+  gem "simplecov", require: false
+end

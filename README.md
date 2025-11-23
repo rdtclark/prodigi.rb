@@ -1,10 +1,6 @@
 # Prodigi API Rubygem
  
-[![codecov](https://codecov.io/gh/rdtclark/prodigi/branch/main/graph/badge.svg)](https://codecov.io/gh/rdtclark/prodigi)
-![CI](https://github.com/rdtclark/prodigi/workflows/CI/badge.svg)
-[![Gem Version](https://badge.fury.io/rb/prodigi.svg)](https://badge.fury.io/rb/prodigi)
-[![Downloads](https://img.shields.io/gem/dt/prodigi.svg)](https://rubygems.org/gems/prodigi)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
+[![codecov](https://codecov.io/gh/rdtclark/prodigi.rb/graph/badge.svg)](https://codecov.io/gh/rdtclark/prodigi.rb)
 
 The easiest and most complete rubygem for [Prodigi](https://www.prodigi.com) Worldwide Printing Service. Currently supports [API v4](https://www.prodigi.com/print-api/docs/reference/#introduction).
  
